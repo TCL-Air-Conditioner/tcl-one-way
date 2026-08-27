@@ -51,9 +51,7 @@
     }
 
 
-    /* =========================
-       整个页面
-       ========================= */
+    /* 整个页面 */
 
     .page {
       width: 100%;
@@ -71,10 +69,7 @@
     }
 
 
-    /* =========================
-       Logo + 标题 + 视频
-       全部作为一个整体
-       ========================= */
+    /* Logo + 标题 + 视频整体 */
 
     .content {
       width: 100%;
@@ -88,16 +83,14 @@
     }
 
 
-    /* =========================
-       TCL 彩色 Logo
-       ========================= */
+    /* TCL 彩色 Logo */
 
     .brand {
       display: flex;
       justify-content: center;
       align-items: center;
 
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .brand img {
@@ -109,30 +102,26 @@
     }
 
 
-    /* =========================
-       产品名称
-       ========================= */
+    /* 产品名称 */
 
     h1 {
       margin: 0;
 
       color: var(--navy);
 
-      font-size: clamp(24px, 3vw, 32px);
+      font-size: clamp(27px, 3.6vw, 38px);
 
-      line-height: 1.08;
+      line-height: 1.06;
 
-      font-weight: 750;
+      font-weight: 780;
 
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
 
       white-space: nowrap;
     }
 
 
-    /* =========================
-       当前视频名称
-       ========================= */
+    /* 当前视频名称 */
 
     .video-title {
       margin-top: 8px;
@@ -147,9 +136,7 @@
     }
 
 
-    /* =========================
-       视频
-       ========================= */
+    /* 视频区域 */
 
     .video-container {
       width: min(78vw, 850px);
@@ -176,9 +163,7 @@
     }
 
 
-    /* =========================
-       手机端重点优化
-       ========================= */
+    /* 手机端 */
 
     @media (max-width: 600px) {
 
@@ -188,23 +173,17 @@
       }
 
 
-      /*
-        整组稍微向上，
-        但 Logo / 标题 / 视频不会再分离
-      */
+      /* 整组稍微向上 */
 
       .content {
         transform: translateY(-1vh);
       }
 
 
-      /*
-        Logo 不再固定在页面最顶部
-        紧跟产品标题
-      */
+      /* Logo */
 
       .brand {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
 
       .brand img {
@@ -212,23 +191,20 @@
       }
 
 
-      /*
-        产品名明显一点
-        同时强制保持一行
-      */
+      /* 手机端主标题更明显，但保持一行 */
 
       h1 {
         font-size: clamp(
-          21px,
-          5.8vw,
-          24px
+          24px,
+          6.4vw,
+          28px
         );
 
-        line-height: 1.08;
+        line-height: 1.06;
 
-        font-weight: 750;
+        font-weight: 780;
 
-        letter-spacing: -0.035em;
+        letter-spacing: -0.04em;
 
         white-space: nowrap;
       }
@@ -241,10 +217,7 @@
       }
 
 
-      /*
-        视频保持横屏
-        手机端约90%屏宽
-      */
+      /* 视频固定横屏 */
 
       .video-container {
         width: 90vw;
@@ -270,9 +243,7 @@
     }
 
 
-    /* =========================
-       特别窄的小屏幕
-       ========================= */
+    /* 超窄屏手机 */
 
     @media (max-width: 350px) {
 
@@ -281,7 +252,7 @@
       }
 
       h1 {
-        font-size: 19px;
+        font-size: 21px;
       }
 
       .video-title {
@@ -306,7 +277,7 @@
     <section class="content">
 
 
-      <!-- TCL 彩色品牌 Logo -->
+      <!-- TCL 彩色 Logo -->
 
       <div class="brand">
 
