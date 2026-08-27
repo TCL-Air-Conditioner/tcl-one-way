@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <title>TCL One-Way Cassette | Filter Installation</title>
+
+  <style>
+
+    :root {
+      --navy: #142b54;
+      --blue-gray: #607c9b;
+
+      /* Logo稍深一点的品牌蓝 */
+      --brand-blue: #3f6fc6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: var(--navy);
+
+      background:
+        radial-gradient(
+          circle at 50% 42%,
+          #ffffff 0%,
+          #f8fbff 55%,
+          #eef7ff 100%
+        );
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+    /* 整个页面 */
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100svh;
+
+      display: flex;
+      flex-direction: column;
+
+      padding:
+        max(18px, env(safe-area-inset-top))
+        16px
+        max(18px, env(safe-area-inset-bottom));
+    }
+
+
+    /* Logo */
+
+    .brand {
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+
+      flex-shrink: 0;
+    }
+
+    .brand-box {
+      background: var(--brand-blue);
+
+      padding: 9px 16px 8px;
+
+      border-radius: 5px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand img {
+      width: 126px;
+      height: auto;
+      display: block;
+    }
+
+
+    /* 主体 */
+
+    .hero {
+      flex: 1;
+
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      padding-bottom: 4vh;
+    }
+
+
+    /* 产品标题 */
+
+    h1 {
+      margin: 0;
+
+      color: var(--navy);
+
+      font-size: clamp(22px, 3vw, 32px);
+
+      line-height: 1.1;
+
+      font-weight: 700;
+
+      letter-spacing: -0.025em;
+
+      white-space: nowrap;
+    }
+
+
+    /* 视频名称 */
+
+    .video-title {
+      margin-top: 8px;
+
+      font-size: clamp(17px, 2vw, 21px);
+
+      line-height: 1.2;
+
+      font-weight: 400;
+
+      color: var(--blue-gray);
+    }
+
+
+    /* 横屏视频区域 */
+
+    .video-container {
+      width: min(78vw, 900px);
+
+      margin-top: 22px;
+    }
+
+    video {
+      width: 100%;
+
+      /* 强制横屏 16:9 */
+      aspect-ratio: 16 / 9;
+
+      display: block;
+
+      object-fit: contain;
+
+      background: #000;
+
+      border-radius: 14px;
+
+      box-shadow:
+        0 16px 40px
+        rgba(20, 43, 84, 0.15);
+    }
+
+
+    /* 手机端 */
+
+    @media (max-width: 600px) {
+
+      .page {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+
+      .brand-box {
+        padding: 7px 12px 6px;
+
+        border-radius: 4px;
+      }
+
+      .brand img {
+        width: 108px;
+      }
+
+
+      .hero {
+        /*
+        整体稍微向上，
+        手机扫码后主要内容出现在屏幕中心
+        */
+        transform: translateY(-2vh);
+
+        padding-bottom: 0;
+      }
+
+
+      h1 {
+        font-size: clamp(
+          17px,
+          5vw,
+          20px
+        );
+
+        white-space: nowrap;
+      }
+
+
+      .video-title {
+        margin-top: 6px;
+
+        font-size: 16px;
+      }
+
+
+      .video-container {
+        /*
+        不再占满手机宽度
+        保持标准横屏视频视觉
+        */
+        width: 90vw;
+
+        max-width: 440px;
+
+        margin-top: 18px;
+      }
+
+
+      video {
+        aspect-ratio: 16 / 9;
+
+        border-radius: 10px;
+
+        object-fit: contain;
+
+        box-shadow:
+          0 12px 30px
+          rgba(20, 43, 84, 0.16);
+      }
+
+    }
+
+
+    /* 很窄的手机 */
+
+    @media (max-width: 350px) {
+
+      h1 {
+        font-size: 16px;
+      }
+
+      .brand img {
+        width: 98px;
+      }
+
+      .video-container {
+        width: 92vw;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <main class="page">
+
+
+    <!-- TCL Olympic Partner Logo -->
+
+    <header class="brand">
+
+      <div class="brand-box">
+
+        <img
+          src="../brand-logo.png"
+          alt="TCL Worldwide Olympic Partner"
+        >
+
+      </div>
+
+    </header>
+
+
+    <!-- 主体 -->
+
+    <section class="hero">
+
+
+      <h1>
+        TCL One-Way Cassette
+      </h1>
+
+
+      <div class="video-title">
+        Filter Installation
+      </div>
+
+
+      <div class="video-container">
+
+        <video
+          controls
+          playsinline
+          webkit-playsinline
+          preload="metadata"
+        >
+
+          <source
+            src="filter-installation.mp4"
+            type="video/mp4"
+          >
+
+          Your browser does not support video playback.
+
+        </video>
+
+      </div>
+
+
+    </section>
+
+  </main>
+
+</body>
+
+</html>
