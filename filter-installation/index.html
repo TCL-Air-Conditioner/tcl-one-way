@@ -40,15 +40,20 @@
 
       color: var(--navy);
 
-      background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #f5faff 100%
-      );
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #f5faff 100%
+        );
 
       -webkit-font-smoothing: antialiased;
     }
 
+
+    /* =========================
+       整个页面
+       ========================= */
 
     .page {
       width: 100%;
@@ -56,75 +61,81 @@
       min-height: 100svh;
 
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
       padding:
-        max(18px, env(safe-area-inset-top))
+        max(16px, env(safe-area-inset-top))
         12px
-        max(18px, env(safe-area-inset-bottom));
+        max(16px, env(safe-area-inset-bottom));
     }
 
 
-    /* 彩色 Logo：不加背景、不加文字、不加色块 */
+    /* =========================
+       Logo + 标题 + 视频
+       全部作为一个整体
+       ========================= */
+
+    .content {
+      width: 100%;
+      max-width: 950px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
+    }
+
+
+    /* =========================
+       TCL 彩色 Logo
+       ========================= */
 
     .brand {
-      width: 100%;
-
       display: flex;
       justify-content: center;
       align-items: center;
 
-      flex-shrink: 0;
+      margin-bottom: 14px;
     }
 
     .brand img {
-      width: 145px;
+      width: 142px;
       height: auto;
 
       display: block;
-
       object-fit: contain;
     }
 
 
-    /* 主体 */
-
-    .hero {
-      flex: 1;
-
-      width: 100%;
-
-      display: flex;
-      flex-direction: column;
-
-      justify-content: center;
-      align-items: center;
-
-      text-align: center;
-
-      padding-bottom: 3vh;
-    }
-
+    /* =========================
+       产品名称
+       ========================= */
 
     h1 {
       margin: 0;
 
       color: var(--navy);
 
-      font-size: clamp(22px, 3vw, 31px);
+      font-size: clamp(24px, 3vw, 32px);
 
-      line-height: 1.1;
+      line-height: 1.08;
 
-      font-weight: 700;
+      font-weight: 750;
 
-      letter-spacing: -0.025em;
+      letter-spacing: -0.03em;
 
       white-space: nowrap;
     }
 
 
+    /* =========================
+       当前视频名称
+       ========================= */
+
     .video-title {
-      margin-top: 7px;
+      margin-top: 8px;
 
       color: var(--blue-gray);
 
@@ -136,7 +147,9 @@
     }
 
 
-    /* 视频固定横屏 */
+    /* =========================
+       视频
+       ========================= */
 
     .video-container {
       width: min(78vw, 850px);
@@ -163,7 +176,9 @@
     }
 
 
-    /* 手机端 */
+    /* =========================
+       手机端重点优化
+       ========================= */
 
     @media (max-width: 600px) {
 
@@ -172,39 +187,73 @@
         padding-right: 10px;
       }
 
+
+      /*
+        整组稍微向上，
+        但 Logo / 标题 / 视频不会再分离
+      */
+
+      .content {
+        transform: translateY(-1vh);
+      }
+
+
+      /*
+        Logo 不再固定在页面最顶部
+        紧跟产品标题
+      */
+
+      .brand {
+        margin-bottom: 12px;
+      }
+
       .brand img {
-        width: 125px;
+        width: 128px;
       }
 
-      .hero {
-        transform: translateY(-1.5vh);
 
-        padding-bottom: 0;
-      }
+      /*
+        产品名明显一点
+        同时强制保持一行
+      */
 
       h1 {
         font-size: clamp(
-          17px,
-          5vw,
-          20px
+          21px,
+          5.8vw,
+          24px
         );
+
+        line-height: 1.08;
+
+        font-weight: 750;
+
+        letter-spacing: -0.035em;
 
         white-space: nowrap;
       }
 
-      .video-title {
-        margin-top: 6px;
 
-        font-size: 16px;
+      .video-title {
+        margin-top: 7px;
+
+        font-size: 17px;
       }
+
+
+      /*
+        视频保持横屏
+        手机端约90%屏宽
+      */
 
       .video-container {
         width: 90vw;
 
         max-width: 430px;
 
-        margin-top: 17px;
+        margin-top: 18px;
       }
+
 
       video {
         aspect-ratio: 16 / 9;
@@ -212,18 +261,30 @@
         object-fit: contain;
 
         border-radius: 10px;
+
+        box-shadow:
+          0 12px 30px
+          rgba(23, 52, 95, 0.16);
       }
 
     }
 
 
+    /* =========================
+       特别窄的小屏幕
+       ========================= */
+
     @media (max-width: 350px) {
 
       .brand img {
-        width: 112px;
+        width: 118px;
       }
 
       h1 {
+        font-size: 19px;
+      }
+
+      .video-title {
         font-size: 16px;
       }
 
@@ -242,31 +303,36 @@
 
   <main class="page">
 
-
-    <!-- 直接显示彩色透明 Logo -->
-
-    <header class="brand">
-
-      <img
-        src="../brand-logo.png"
-        alt="TCL Worldwide Olympic Partner"
-      >
-
-    </header>
+    <section class="content">
 
 
-    <section class="hero">
+      <!-- TCL 彩色品牌 Logo -->
 
+      <div class="brand">
+
+        <img
+          src="../brand-logo.png"
+          alt="TCL Worldwide Olympic Partner"
+        >
+
+      </div>
+
+
+      <!-- 产品名称 -->
 
       <h1>
         TCL One-Way Cassette
       </h1>
 
 
+      <!-- 视频名称 -->
+
       <div class="video-title">
         Filter Installation
       </div>
 
+
+      <!-- 横屏视频 -->
 
       <div class="video-container">
 
