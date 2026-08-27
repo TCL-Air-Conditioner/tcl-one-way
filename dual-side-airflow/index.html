@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <title>TCL One-Way Cassette | Dual-Side Airflow</title>
+
+  <style>
+
+    :root {
+      --navy: #17345f;
+      --blue-gray: #637b98;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: var(--navy);
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #f5faff 100%
+        );
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+    /* 整个页面 */
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100svh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding:
+        max(16px, env(safe-area-inset-top))
+        12px
+        max(16px, env(safe-area-inset-bottom));
+    }
+
+
+    /* Logo + 标题 + 视频整体 */
+
+    .content {
+      width: 100%;
+      max-width: 950px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
+    }
+
+
+    /* TCL 彩色 Logo */
+
+    .brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-bottom: 12px;
+    }
+
+    .brand img {
+      width: 142px;
+      height: auto;
+
+      display: block;
+      object-fit: contain;
+    }
+
+
+    /* 产品名称 */
+
+    h1 {
+      margin: 0;
+
+      color: var(--navy);
+
+      font-size: clamp(27px, 3.6vw, 38px);
+
+      line-height: 1.06;
+
+      font-weight: 780;
+
+      letter-spacing: -0.035em;
+
+      white-space: nowrap;
+    }
+
+
+    /* 当前视频名称 */
+
+    .video-title {
+      margin-top: 8px;
+
+      color: var(--blue-gray);
+
+      font-size: clamp(17px, 2vw, 21px);
+
+      line-height: 1.2;
+
+      font-weight: 400;
+    }
+
+
+    /* 视频区域 */
+
+    .video-container {
+      width: min(78vw, 850px);
+
+      margin-top: 20px;
+    }
+
+    video {
+      width: 100%;
+
+      aspect-ratio: 16 / 9;
+
+      display: block;
+
+      object-fit: contain;
+
+      background: #000;
+
+      border-radius: 12px;
+
+      box-shadow:
+        0 15px 38px
+        rgba(23, 52, 95, 0.15);
+    }
+
+
+    /* 手机端 */
+
+    @media (max-width: 600px) {
+
+      .page {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+
+      /* 整组稍微向上 */
+
+      .content {
+        transform: translateY(-1vh);
+      }
+
+
+      /* Logo */
+
+      .brand {
+        margin-bottom: 10px;
+      }
+
+      .brand img {
+        width: 128px;
+      }
+
+
+      /* 手机端主标题更明显，但保持一行 */
+
+      h1 {
+        font-size: clamp(
+          24px,
+          6.4vw,
+          28px
+        );
+
+        line-height: 1.06;
+
+        font-weight: 780;
+
+        letter-spacing: -0.04em;
+
+        white-space: nowrap;
+      }
+
+
+      .video-title {
+        margin-top: 7px;
+
+        font-size: 17px;
+      }
+
+
+      /* 视频固定横屏 */
+
+      .video-container {
+        width: 90vw;
+
+        max-width: 430px;
+
+        margin-top: 18px;
+      }
+
+
+      video {
+        aspect-ratio: 16 / 9;
+
+        object-fit: contain;
+
+        border-radius: 10px;
+
+        box-shadow:
+          0 12px 30px
+          rgba(23, 52, 95, 0.16);
+      }
+
+    }
+
+
+    /* 超窄屏手机 */
+
+    @media (max-width: 350px) {
+
+      .brand img {
+        width: 118px;
+      }
+
+      h1 {
+        font-size: 21px;
+      }
+
+      .video-title {
+        font-size: 16px;
+      }
+
+      .video-container {
+        width: 92vw;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <main class="page">
+
+    <section class="content">
+
+
+      <!-- TCL 彩色 Logo -->
+
+      <div class="brand">
+
+        <img
+          src="../brand-logo.png"
+          alt="TCL Worldwide Olympic Partner"
+        >
+
+      </div>
+
+
+      <!-- 产品名称 -->
+
+      <h1>
+        TCL One-Way Cassette
+      </h1>
+
+
+      <!-- 视频名称 -->
+
+      <div class="video-title">
+        Dual-Side Airflow
+      </div>
+
+
+      <!-- 横屏视频 -->
+
+      <div class="video-container">
+
+        <video
+          controls
+          playsinline
+          webkit-playsinline
+          preload="metadata"
+        >
+
+          <source
+            src="dual-side-airflow.mp4"
+            type="video/mp4"
+          >
+
+          Your browser does not support video playback.
+
+        </video>
+
+      </div>
+
+
+    </section>
+
+  </main>
+
+</body>
+
+</html>
