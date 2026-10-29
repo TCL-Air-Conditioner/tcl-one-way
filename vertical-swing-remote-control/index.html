@@ -406,6 +406,7 @@
   let timer;
   let requested = false;
   let hasError = false;
+  let pictureIssue = false;
   let resumeAt = 0;
   let previewRemoved = false;
   let pictureTimer;
@@ -437,6 +438,7 @@
         if (!requested || video.paused) return;
         if (metadata.mediaTime > startedAt + 0.04) {
           video.dataset.pictureState = 'rendered';
+          pictureIssue = false;
           window.clearTimeout(pictureTimer);
           hideStatus();
         } else {
@@ -449,6 +451,8 @@
       if (!requested || video.paused || video.ended || document.hidden || hasError) return;
       if (video.currentTime > startedAt + 0.5 &&
           ((canObserveFrames && video.dataset.pictureState !== 'rendered') || video.videoWidth === 0)) {
+        pictureIssue = true;
+        video.dataset.pictureState = 'no-picture';
         showStatus('The video picture could not be confirmed. Retry or open the MP4 directly.', true);
       }
     }, 5000);
@@ -467,7 +471,7 @@
   function clearTimer() { window.clearTimeout(timer); }
   function hideStatus() {
     clearTimer();
-    if (!hasError) status.hidden = true;
+    if (!hasError && !pictureIssue) status.hidden = true;
   }
   function showStatus(value, canRetry) {
     text.textContent = value;
@@ -540,6 +544,7 @@
     removePreview();
     resumeAt = Number.isFinite(video.currentTime) ? video.currentTime : 0;
     hasError = false;
+    pictureIssue = false;
     requested = true;
     showStatus('Loading video…', false);
     // Only an explicit retry resets the resource; ordinary playback keeps its buffer.
